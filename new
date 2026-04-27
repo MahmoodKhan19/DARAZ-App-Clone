@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Borrowed Hands — Trade skills, not money</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Borrowed Hands</div>
+      <nav class="nav">
+        <button class="nav-link is-active" data-view="home">Home</button>
+        <button class="nav-link" data-view="explore">Explore</button>
+        <button class="nav-link" data-view="ledger">My Ledger</button>
+        <button class="nav-link" data-view="schedule">Schedule</button>
+        <button class="nav-link" data-view="proof">Proof-of-Help</button>
+        <button class="nav-link" data-view="community">Community</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Home -->
+    <section id="view-home" class="view is-visible">
+      <div class="hero">
+        <h1>Trade skills, not money</h1>
+        <p>Exchange hours of expertise across communities. Your time is the currency.</p>
+        <div class="actions">
+          <button class="btn btn-primary" data-view="explore">Join now</button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-head">
+            <strong>Photography</strong>
+            <span class="dot dot-indigo"></span>
+          </div>
+          <p>Discover exchanges in street photography, portrait, and editing.</p>
+          <button class="link" data-view="explore">Explore</button>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <strong>Cooking</strong>
+            <span class="dot dot-emerald"></span>
+          </div>
+          <p>Knife skills, regional recipes, food styling, and meal prep.</p>
+          <button class="link" data-view="explore">Explore</button>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <strong>Coding</strong>
+            <span class="dot dot-red"></span>
+          </div>
+          <p>Frontend, backend, and career mentoring for beginners to advanced.</p>
+          <button class="link" data-view="explore">Explore</button>
+        </div>
+      </div>
+
+      <div class="card mt-24">
+        <h2 class="section-title">How it works</h2>
+        <div class="grid grid-3">
+          <div>
+            <strong>Offer</strong>
+            <p>Post a skill you can help with and what you’re seeking in return.</p>
+          </div>
+          <div>
+            <strong>Exchange</strong>
+            <p>Schedule an hour-for-hour swap with clear expectations.</p>
+          </div>
+          <div>
+            <strong>Ledger update</strong>
+            <p>Confirm completion; your time ledger balances automatically.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore -->
+    <section id="view-explore" class="view">
+      <div class="bar">
+        <input id="searchInput" class="input" placeholder="Search skills…" />
+        <div class="filters">
+          <select id="filterLocation" class="input">
+            <option value="">Any location</option>
+            <option>Peshawar</option>
+            <option>Islamabad</option>
+            <option>Lahore</option>
+          </select>
+          <select id="filterCategory" class="input">
+            <option value="">All categories</option>
+            <option>Arts</option>
+            <option>Tech</option>
+            <option>Lifestyle</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="exploreList" class="stack"></div>
+    </section>
+
+    <!-- Ledger -->
+    <section id="view-ledger" class="view">
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="grid grid-2">
+            <div>
+              <div class="muted">Hours offered</div>
+              <div id="hoursOffered" class="stat">0</div>
+            </div>
+            <div>
+              <div class="muted">Hours received</div>
+              <div id="hoursReceived" class="stat">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="muted mb-8">Monthly hours</div>
+          <div id="chart" class="chart"></div>
+          <div class="chart-legend"><span class="bar bar-indigo"></span> Given <span class="bar bar-emerald"></span> Received</div>
+        </div>
+      </div>
+
+      <div class="card mt-24">
+        <h2 class="section-title">Timeline</h2>
+        <ul id="timeline" class="timeline"></ul>
+      </div>
+
+      <div class="card mt-12">
+        <h2 class="section-title">Trust badges</h2>
+        <div class="badges">
+          <span class="badge badge-emerald">Verified exchanges</span>
+          <span class="badge badge-amber">On-time</span>
+          <span class="badge">Peer endorsed</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="view-schedule" class="view">
+      <h2 class="section-title">Schedule</h2>
+      <div id="calendar" class="calendar"></div>
+
+      <div class="card mt-24">
+        <h2 class="section-title">Escrow status</h2>
+        <ul id="escrowList" class="timeline"></ul>
+      </div>
+
+      <div class="bar mt-12">
+        <button class="btn">Reschedule</button>
+        <button class="btn">Cancel</button>
+        <button class="btn btn-primary">Confirm completion</button>
+      </div>
+    </section>
+
+    <!-- Proof-of-Help -->
+    <section id="view-proof" class="view">
+      <h2 class="section-title">Proof of help</h2>
+      <div class="card">
+        <div class="grid grid-2">
+          <div>
+            <input type="file" multiple class="input" />
+            <p class="small muted mt-4">Photos, screenshots, or short audio</p>
+          </div>
+          <div>
+            <textarea id="proofNotes" class="input" rows="6" placeholder="Add a short testimonial or summary…"></textarea>
+          </div>
+        </div>
+        <div class="bar mt-12">
+          <button class="btn btn-primary" id="submitProof">Submit</button>
+          <button class="btn" id="requestClarification">Request clarification</button>
+        </div>
+      </div>
+
+      <div class="card mt-24">
+        <h2 class="section-title">History</h2>
+        <ul id="proofHistory" class="timeline"></ul>
+      </div>
+    </section>
+
+    <!-- Community -->
+    <section id="view-community" class="view">
+      <h2 class="section-title">Community</h2>
+      <div class="card">
+        <h3>Forum threads</h3>
+        <ul class="stack small">
+          <li>Tips: Running fair exchanges</li>
+          <li>Cooking + Photography: Cross-skill ring ideas</li>
+          <li>Local meetups in Peshawar</li>
+        </ul>
+      </div>
+
+      <div class="card mt-12">
+        <h3>Lineage graph (concept)</h3>
+        <p class="muted">Visual map showing how skills branch and evolve over time. Placeholder section.</p>
+      </div>
+
+      <div class="card mt-12">
+        <h3>Events</h3>
+        <ul class="stack small">
+          <li>Online workshop: Story editing basics</li>
+          <li>Photo walk: University Road, Peshawar</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="muted small">© Borrowed Hands · About · FAQ · Contact · Terms</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
